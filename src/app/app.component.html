@@ -1,0 +1,15 @@
+<section>
+  <h1>IP Address Tracker</h1>
+  <form (submit)="getSearch($event)">
+    <input [formControl]="input" type="text" placeholder="Search for any IP Address or domain">
+    <button type="submit">
+      <img src="../../assets/images/icon-arrow.svg" alt="arrow" loading="lazy">
+    </button>
+  </form>
+</section>
+<section>
+  <app-result></app-result>
+</section>
+<section>
+  <div id="map"></div>
+</section>
