@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, inject } from '@angular/core';
-import { Map, Marker, marker, tileLayer } from 'leaflet';
+import { Map, Marker, marker, tileLayer, Icon, icon } from 'leaflet';
 import { IpRequest } from './services/ip-request.service';
 import { IResultIP, ILocalIP } from './dto/info-ip.dto';
 import { FormControl } from "@angular/forms";
@@ -18,10 +18,18 @@ export class AppComponent implements OnInit, AfterViewInit{
 
   myMap!: Map;
   markerItem!: Marker;
+  customIcon!: Icon;
+
   resultInfo: ResultInfo = new ResultInfo({});
 
-  constructor() { }
-
+  constructor() {
+    this.customIcon = icon({
+      iconUrl: this.resolveUrl('assets/images/icon-location.svg'),
+      iconSize: [32, 40],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32]
+    });
+  }
 
   ngAfterViewInit(){
     this.myMap = new Map('map').setView([2.93264, -75.2811], 15);
@@ -29,13 +37,10 @@ export class AppComponent implements OnInit, AfterViewInit{
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.myMap);
+  }
 
-
-    /* const markerItem = marker([2.93264, -75.28024]).addTo(myMap);
-    myMap.fitBounds([
-      [markerItem.getLatLng().lat, markerItem.getLatLng().lng]
-    ]); */
-
+  private resolveUrl(url: string): string {
+    return new URL(url, document.baseURI).toString();
   }
 
   ngOnInit() {
@@ -65,7 +70,7 @@ export class AppComponent implements OnInit, AfterViewInit{
             this.markerItem.removeFrom(this.myMap);
           }
 
-          this.markerItem = marker([response.location.lat, response.location.lng]).addTo(this.myMap);
+          this.markerItem = marker([response.location.lat, response.location.lng], { icon: this.customIcon }).addTo(this.myMap);
           this.myMap.fitBounds([
             [this.markerItem.getLatLng().lat, this.markerItem.getLatLng().lng]
           ]);

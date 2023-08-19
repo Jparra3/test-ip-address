@@ -1,1 +1,101 @@
-#map { height: 600px; }
+@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+
+.map {
+  height: 60%;
+}
+
+.form-ip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  background: url(../assets/images/pattern-bg.png) no-repeat;
+  background-size: 100% 100%;
+
+  h1 {
+    font-size: 2rem;
+    color: white;
+  }
+
+  form {
+    display: flex;
+    width: 90%;
+    max-width: 640px;
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 1rem 0 0 1rem;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    button {
+      border-radius: 0 1rem 1rem 0;
+      background-color: var(--very-dark-gray);
+      padding: 1rem;
+
+      &:hover {
+        background-color: var(--dark-gray);
+      }
+    }
+  }
+}
+
+.result {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 1000;
+  width: calc(90% - 8rem);
+  // display: grid;
+  // grid-template-columns: repeat(4, auto);
+  padding: 2rem;
+  border-radius: 1rem;
+  gap: 0.5rem;
+}
+
+
+@media screen and (min-aspect-ratio: 1) and (max-width: 1024px) {
+  .form-ip {
+    justify-content: start;
+    h1 {
+      margin-block-start: 3rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-aspect-ratio: 1) and (max-width: 767px) {
+  .form-ip {
+    justify-content: start;
+
+    h1 {
+      margin-block-start: 2rem;
+      font-size: 1.5rem;
+    }
+
+  }
+  .result {
+    display: flex;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    .form-ip {
+      h1 {
+        margin-block-start: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 782px) {
+  .result {
+    top: 50%
+  }
+}

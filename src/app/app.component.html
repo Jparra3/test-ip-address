@@ -1,4 +1,4 @@
-<section>
+<section class="form-ip">
   <h1>IP Address Tracker</h1>
   <form (submit)="getSearch($event)">
     <input [formControl]="input" type="text" placeholder="Search for any IP Address or domain">
@@ -7,9 +7,7 @@
     </button>
   </form>
 </section>
-<section>
+<section class="result">
   <app-result></app-result>
 </section>
-<section>
-  <div id="map"></div>
-</section>
+<section id="map" class="map"></section>

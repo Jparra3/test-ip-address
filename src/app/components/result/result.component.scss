@@ -1,0 +1,36 @@
+.card-container {
+  display: flex;
+  justify-content: space-between; /* justify-content: center; */
+  align-items: center;
+  gap: 20px;
+}
+
+.card {
+  font-weight: 700;
+  &-title {
+    color: var(--dark-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1) {
+  .card-container {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .card {
+    display: block;
+    text-align: center;
+
+    &-title {
+      font-size: 0.6rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+    }
+  }
+}
