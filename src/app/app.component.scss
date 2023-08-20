@@ -1,15 +1,14 @@
 @import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
 
 .map {
-  height: 60%;
+  height: 70%;
 }
 
 .form-ip {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 40%;
+  height: 30%;
   background: url(../assets/images/pattern-bg.png) no-repeat;
   background-size: 100% 100%;
 
@@ -45,17 +44,14 @@
 
 .result {
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   z-index: 1000;
   width: calc(90% - 128px);
-  // display: grid;
-  // grid-template-columns: repeat(4, auto);
-  padding: 32px;
+  padding: 16px 20px 0px 20px;
   border-radius: 16px;
-  gap: 8px;
 }
 
 
@@ -66,6 +62,12 @@
       margin-block-start: 48px;
       font-size: 24px;
     }
+  }
+}
+
+@media screen and (max-aspect-ratio: 1) {
+  .result {
+    top: 34%;
   }
 }
 
@@ -80,13 +82,12 @@
 
   }
   .result {
-    display: flex;
-    text-align: center;
-    padding: 16px;
+    top: 34%;
   }
 
   @media screen and (max-width: 375px) {
     .form-ip {
+       background-size: auto 100%;
       h1 {
         margin-block-start: 16px;
       }
@@ -96,6 +97,6 @@
 
 @media screen and (max-height: 782px) {
   .result {
-    top: 50%
+    top: 38%;
   }
 }

@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   ngAfterViewInit(){
-    this.myMap = new Map('map').setView([2.93264, -75.2811], 15);
+    this.myMap = new Map('map').setView([0, 0], 16);
     tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -74,6 +74,15 @@ export class AppComponent implements OnInit, AfterViewInit{
           this.myMap.fitBounds([
             [this.markerItem.getLatLng().lat, this.markerItem.getLatLng().lng]
           ]);
+
+          //Animación
+          const targetLatLng = this.markerItem.getLatLng();
+          const flyOptions = {
+            duration: 3,
+            easeLinearity: 0.1,
+          };
+          // Mover el mapa hacia el marcador con animación
+          this.myMap.flyTo(targetLatLng, 17, flyOptions);
         }
       })
     }
