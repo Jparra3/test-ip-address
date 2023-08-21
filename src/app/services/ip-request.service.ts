@@ -1,8 +1,8 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IResultIP, ILocalIP } from '../dto/info-ip.dto';
+import { IResultIP, ILocalIP } from '../models/info-ip';
 import { Observable } from 'rxjs';
-import { ResultInfo } from '../dto/result-info';
+import { ResultInfo } from '../models/result-info';
 
 const ipKey = 'at_LPcc4HjW4Tx8iLLiTINd1Z0ZC4XSm';
 

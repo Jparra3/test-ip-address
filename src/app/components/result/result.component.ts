@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IpRequest } from 'src/app/services/ip-request.service';
-import { ResultInfo } from 'src/app/dto/result-info';
+import { ResultInfo } from 'src/app/models/result-info';
 
 @Component({
   selector: 'app-result',

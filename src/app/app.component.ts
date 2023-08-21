@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit, inject } from '@angular/core';
 import { Map, Marker, marker, tileLayer, Icon, icon } from 'leaflet';
 import { IpRequest } from './services/ip-request.service';
-import { IResultIP, ILocalIP } from './dto/info-ip.dto';
+import { IResultIP, ILocalIP } from './models/info-ip';
 import { FormControl } from "@angular/forms";
-import { ResultInfo } from './dto/result-info';
+import { ResultInfo } from './models/result-info';
 
 @Component({
   selector: 'app-root',
